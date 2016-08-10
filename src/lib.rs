@@ -14,5 +14,8 @@ extern "C" {
 	pub fn wl_client_create(display : *const wl_display, fd : c_int) -> *const wl_client;
 	pub fn wl_display_run(display : *const wl_display);
 	pub fn wl_display_destroy(display : *const wl_display);
+
+	pub fn wl_display_add_socket(display : *const wl_display, name : *const c_char) -> c_int;
+	pub fn wl_display_add_socket_auto(display : *const wl_display) -> *const c_char;
 }
 
