@@ -8,6 +8,13 @@ pub type RustCb = extern fn(data : *mut c_void);
 pub struct wl_display;
 #[repr(C)]
 pub struct wl_client;
+#[repr(C)]
+pub struct wl_event_loop;
+#[repr(C)]
+pub struct wl_signal;
+
+#[repr(C)]
+pub struct Signals;
 
 extern "C" {
 	pub fn wl_display_create() -> *const wl_display;
@@ -17,5 +24,11 @@ extern "C" {
 
 	pub fn wl_display_add_socket(display : *const wl_display, name : *const c_char) -> c_int;
 	pub fn wl_display_add_socket_auto(display : *const wl_display) -> *const c_char;
+
+	pub fn wl_display_get_event_loop(display : *const wl_display) -> *const wl_event_loop;
+
+	pub fn wl_signal_init(signal : *const wl_signal);
+
+	pub fn create_signals() -> *const Signals;
 }
 
