@@ -30,5 +30,7 @@ extern "C" {
 	pub fn wl_signal_init(signal : *const wl_signal);
 
 	pub fn create_signals() -> *const Signals;
+
+	pub fn init_tmp(display : *const wl_display);
 }
 
