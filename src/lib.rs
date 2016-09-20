@@ -36,3 +36,8 @@ extern "C" {
 	pub fn init_tmp(display : *const wl_display);
 }
 
+
+extern "C" {
+	pub fn main_wlc() -> c_int;
+}
+

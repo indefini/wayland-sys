@@ -12,6 +12,9 @@ fn main() {
     if let Ok(ref mut info) = pkg_config::find_library("wayland-server") {
         paths.append(&mut info.include_paths);
     }
+    if let Ok(ref mut info) = pkg_config::find_library("wlc") {
+        paths.append(&mut info.include_paths);
+    }
     build_lib(&paths);
 }
 
@@ -22,7 +25,8 @@ fn build_lib(include_paths: &[PathBuf]) {
         config.include(path);
     }
 
-    config.file("src/lib.c")
+    //config.file("src/lib.c")
+    config.file("src/wlc.c")
         .compile("libwayland-server_chris.a");
 }
 
